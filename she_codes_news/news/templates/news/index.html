@@ -9,9 +9,9 @@
 
 {% block content %}
 
-<h2>Latest News</h2>
-<h4><a href="{% url 'news:newStory' %}">Write New story</a></h4>
+<a href="{% url 'news:newStory' %}">Write New story</a>
 
+<h2>Latest News</h2>
 
 <div id="latest-stories">
   {% if latest_stories %}
