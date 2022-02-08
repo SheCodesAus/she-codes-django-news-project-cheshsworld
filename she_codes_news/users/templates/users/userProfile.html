@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block content %} 
+
+<div>
+    <h1> <a href="#">{{ profile.username }}</a> </h1>
+    {% for story in user_story %}
+        <h2>{{ story.title }}</h2>
+        <h2>{{ story.author.username }}</h2>
+        {% endfor %}
+   
+</div>
+
+{% endblock %}
