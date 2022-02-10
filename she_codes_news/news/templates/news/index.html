@@ -9,6 +9,12 @@
 
 {% block content %}
 
+<form action="">
+  <input type="text" name="search" placeholder="Article look up" value="{{request.GET.search}}">
+  <input type="submit" value="Search">
+</form>
+
+
 {% if request.user.is_authenticated %}
 <a href="{% url 'news:newStory' %}">Write New story</a>
 
