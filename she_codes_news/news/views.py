@@ -1,5 +1,5 @@
 from django.views import generic
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from .models import NewsStory
 from .forms import StoryForm
 from django.db.models import Q
@@ -42,14 +42,24 @@ class AddStoryView(generic.CreateView):
 
 
 class StoryUpdateView(generic.UpdateView):
-    Model = NewsStory
-    context_object_name = 'storyUpdate'
+    model = NewsStory
     fields = ['title','content','image_upload']
-    template_name = 'news/updateStory.html'
+    template_name = 'news/createStory.html'
     
+
     def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
+        if form.instance.author == self.request.user:
+            return super().form_valid(form)
+        return super().form_invalid(form)
+
+    def get_success_url(self):
+        story_id = self.object.id
+        return reverse('news:story', kwargs={'pk': story_id},)
+
+
+    
+
+  
 
     
     
