@@ -41,7 +41,16 @@ class AddStoryView(generic.CreateView):
         return super().form_valid(form)
 
 
-class AuthorUpdateView(generic.UpdateView):
+class StoryUpdateView(generic.UpdateView):
     Model = NewsStory
+    context_object_name = 'storyUpdate'
     fields = ['title','content','image_upload']
+    template_name = 'news/updateStory.html'
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    
+    
 
