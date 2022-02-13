@@ -5,8 +5,10 @@
 
 <div>
     <h1> {{ profile.username }} </h1>   
-    {% for story in user_story %}
-        <h2><a href="{% url 'news:story' story.id %}">{{ story.title }}, <br> {{ story.author.username }} </a></h2>    
+    {% for story in profile.newsstory_set.all %}
+        <a href="{% url 'news:updateStory' story.id %}"> Edit </a>   
+        <h2><a href="{% url 'news:story' story.id %}">{{ story.title }}, <br> {{ story.author.username }} </a></h2> 
+        
         {% endfor %}
 
         

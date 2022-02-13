@@ -57,6 +57,11 @@ class StoryUpdateView(generic.UpdateView):
         return reverse('news:story', kwargs={'pk': story_id},)
 
 
+
+
+class StoryDeleteView(generic.DeleteView):
+    model = NewsStory
+    success_url = reverse_lazy()
     
 
   

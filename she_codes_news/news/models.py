@@ -13,6 +13,7 @@ class NewsStory(models.Model):
         on_delete=models.CASCADE
     )
     pub_date = models.DateTimeField(auto_now=False, auto_now_add=True)
+    pub_update = models.DateTimeField(auto_now=True)
     content = models.TextField()
     image_upload = models.ImageField(null=True, blank=True, upload_to='')
     
