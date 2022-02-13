@@ -7,8 +7,8 @@
     <h1> {{ profile.username }} </h1>   
     {% for story in profile.newsstory_set.all %}
        
-        <h2><a href="{% url 'news:story' story.id %}">{{ story.title }}, <br> {{ story.author.username }} </a></h2>
-        <a href="{% url 'news:updateStory' story.id %}"> Edit </a> <br> <a href="{% url 'news:deleteStory' story.id %}"> delete</a>
+        <h2><a href="{% url 'news:story' story.id %}">{{ story.title }} </a></h2>
+        <a href="{% url 'news:updateStory' story.id %}"> Edit </a> | <a href="{% url 'news:deleteStory' story.id %}"> Delete</a>
         
         
         {% endfor %}
