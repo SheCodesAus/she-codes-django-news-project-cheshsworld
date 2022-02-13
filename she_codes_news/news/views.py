@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from django.views import generic
 from django.urls import reverse_lazy, reverse
 from .models import NewsStory
@@ -61,10 +62,13 @@ class StoryUpdateView(generic.UpdateView):
 
 class StoryDeleteView(generic.DeleteView):
     model = NewsStory
-    success_url = reverse_lazy()
-    
+    template_name = 'news/deletestory.html'
+    success_url = reverse_lazy('news:index')
 
-  
+
+        
+    
+     
 
     
     
