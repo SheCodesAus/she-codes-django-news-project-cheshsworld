@@ -8,7 +8,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    background-color: #8246AF;
 }
 
 img {
