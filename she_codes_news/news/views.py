@@ -8,6 +8,7 @@ from django.db.models import Q
 
 class IndexView(generic.ListView):
     template_name = 'news/index.html'
+    
   
     def get_queryset(self):
         '''Return all news stories.'''
@@ -15,7 +16,7 @@ class IndexView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['latest_stories'] = NewsStory.objects.all()[:4]
+        context['latest_stories'] = NewsStory.objects.all().order_by('-pub_date')[:4]
         if self.request.GET.get('search'):
             s_term = self.request.GET.get('search')
             context['all_stories'] = NewsStory.objects.filter(Q(title__icontains=s_term) | Q(author__username=s_term) | Q(author__last_name=s_term))
