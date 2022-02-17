@@ -4,6 +4,7 @@ from django.urls import reverse_lazy, reverse
 from .models import NewsStory
 from .forms import StoryForm
 from django.db.models import Q
+from django.core.exceptions import PermissionDenied
 
 
 class IndexView(generic.ListView):
@@ -54,17 +55,29 @@ class StoryUpdateView(generic.UpdateView):
             return super().form_valid(form)
         return super().form_invalid(form)
 
+    def get_object(self, queryset = None):
+        story = super().get_object(queryset)
+        if story.author != self.request.user:
+            raise PermissionDenied
+        return story
+
     def get_success_url(self):
         story_id = self.object.id
         return reverse('news:story', kwargs={'pk': story_id},)
-
-
 
 
 class StoryDeleteView(generic.DeleteView):
     model = NewsStory
     template_name = 'news/deletestory.html'
     success_url = reverse_lazy('news:index')
+
+    def get_object(self, queryset = None):
+        story = super().get_object(queryset)
+        if story.author != self.request.user:
+            raise PermissionDenied
+        return story
+
+
 
 
         
