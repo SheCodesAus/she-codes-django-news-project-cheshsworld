@@ -1,7 +1,7 @@
 <div class="story-card" id="story-card-{{ position }}">
     <a href="{% url 'news:story' story.id %}">
         {% if story.image_upload %}
-            <img src="{{ story.image_upload.url  }}">  
+            <img src="{{ story.image_upload }}">  
     
         {% else %}
             <img src="https://picsum.photos/600">

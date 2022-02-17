@@ -15,7 +15,7 @@ class NewsStory(models.Model):
     pub_date = models.DateTimeField(auto_now=False, auto_now_add=True)
     pub_update = models.DateTimeField(auto_now=True)
     content = models.TextField()
-    image_upload = models.ImageField(null=True, blank=True, upload_to='')
+    image_upload = models.URLField(default="https://picsum.photos/600")
     
     def __str__(self):
         return f"{self.pub_date} - {self.title}"

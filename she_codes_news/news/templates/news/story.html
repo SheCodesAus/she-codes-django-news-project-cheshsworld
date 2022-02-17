@@ -10,10 +10,12 @@
 <div id="story-wrapper">
   <h2>{{ story.title }}</h2>
   <h4>{{ story.author }}</h4>
-  
+ 
 
   <div id="story-content">
-    {% if story.image_upload %}    
+    {% if story.image_upload %}
+    <img src="{{ story.image_upload }}">
+     
      
 
     {% else %}
