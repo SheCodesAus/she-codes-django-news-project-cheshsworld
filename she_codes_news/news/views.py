@@ -1,3 +1,4 @@
+from unicodedata import category
 from django.shortcuts import get_object_or_404
 from django.views import generic
 from django.urls import reverse_lazy, reverse
@@ -20,7 +21,7 @@ class IndexView(generic.ListView):
         context['latest_stories'] = NewsStory.objects.all().order_by('-pub_date')[:4]
         if self.request.GET.get('search'):
             s_term = self.request.GET.get('search')
-            context['all_stories'] = NewsStory.objects.filter(Q(title__icontains=s_term) | Q(author__username=s_term) | Q(author__last_name=s_term))
+            context['all_stories'] = NewsStory.objects.filter(Q(title__icontains=s_term) | Q(author__username=s_term) | Q(author__last_name=s_term)) 
         else:
             context['all_stories'] = NewsStory.objects.all()
         return context
