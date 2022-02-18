@@ -47,7 +47,7 @@ class AddStoryView(generic.CreateView):
 
 class StoryUpdateView(generic.UpdateView):
     model = NewsStory
-    fields = '__all__'
+    fields =  ['image_upload', 'title','content', 'category']
     template_name = 'news/createStory.html'
     
 

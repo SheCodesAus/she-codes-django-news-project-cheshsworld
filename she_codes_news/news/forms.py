@@ -6,6 +6,6 @@ from .models import NewsStory
 class StoryForm(ModelForm):
     class Meta:
         model = NewsStory
-        fields = '__all__'
+        fields = ['image_upload', 'title','content', 'category']
         
     
