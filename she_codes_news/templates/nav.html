@@ -5,5 +5,6 @@
         <a id="nav-text" href="{% url 'logout' %}">Logout</a>
     {% else %}
         <a id="nav-text" href="{% url 'login' %}">Login</a>
+        <a id="nav-text" href="{% url 'users:createAccount' %}">Register</a>
     {% endif %}
 </nav>
