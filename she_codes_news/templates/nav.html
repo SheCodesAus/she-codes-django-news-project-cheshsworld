@@ -1,9 +1,9 @@
 <nav>
-    <a href="{% url 'news:index' %}">Home</a>
+    <a id="nav-text" href="{% url 'news:index' %}">Home</a>
     {% if request.user.is_authenticated %}
-        <a href="{% url 'users:profile' user.id %}">Welcome {{ user.username }}!</a>
-        <a href="{% url 'logout' %}">Logout</a>
+        <a id="nav-text" href="{% url 'users:profile' user.id %}">Welcome {{ user.username }}!</a>
+        <a id="nav-text" href="{% url 'logout' %}">Logout</a>
     {% else %}
-        <a href="{% url 'login' %}">Login</a>
+        <a id="nav-text" href="{% url 'login' %}">Login</a>
     {% endif %}
 </nav>
