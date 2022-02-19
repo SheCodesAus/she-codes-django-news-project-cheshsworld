@@ -5,16 +5,27 @@
 
 <div>
     <h2> {{ profile.username }} </h2>   
-    {% for story in profile.newsstory_set.all %}
-       
+</div>
+
+{% if request.user == profile %}
+<a id="new_story" href="{% url 'news:newStory' %}">Write New story</a>
+{% endif %} 
+
+
+<div> 
+    My Stories:
+
+    <ul>    
+    {% for story in profile.newsstory_set.all %} 
+
+    
+    <li><h2><a href="{% url 'news:story' story.id %}">{{ story.title }}</a></h2></li>  
         
-    <h2><a href="{% url 'news:story' story.id %}">{{ story.title }}</a></h2>
-        
-        {% if request.user.is_authenticated %}
+        {% if request.user == profile %}
         <a href="{% url 'news:updateStory' story.id %}"> Edit </a> | <a href="{% url 'news:deleteStory' story.id %}"> Delete</a>
         {% endif %} 
         {% endfor %}
-
+    </ul> 
         
    
 </div>

@@ -18,11 +18,11 @@ class IndexView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['latest_stories'] = NewsStory.objects.all().order_by('-pub_date')[:4]
         if self.request.GET.get('search'):
             s_term = self.request.GET.get('search')
-            context['all_stories'] = NewsStory.objects.filter(Q(title__icontains=s_term) | Q(author__username=s_term) | Q(author__last_name=s_term)) 
+            context['all_stories'] = NewsStory.objects.filter(Q(title__icontains=s_term) | Q(author__username=s_term) | Q(author__last_name=s_term) | Q(category__name__iexact=s_term)) 
         else:
+            context['latest_stories'] = NewsStory.objects.all().order_by('-pub_date')[:4]
             context['all_stories'] = NewsStory.objects.all()
         return context
 

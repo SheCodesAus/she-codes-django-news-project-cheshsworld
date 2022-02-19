@@ -12,6 +12,11 @@
             <h3>{{ story.title }}</h3>
             <h4><a href="{% url 'users:profile' pk=story.author.id %}">Written by: {{ story.author }}</a></h4>
             <h4>Published: {{ story.pub_date }}</h4>
+            {% if story.category %}
+            <h4>#{{ story.category }}</h4>
+            {% else %}
+            <h4>#Uncategorised</h4>
+            {% endif %}
         </div>
        
     </a>

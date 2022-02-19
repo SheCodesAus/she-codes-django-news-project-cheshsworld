@@ -14,12 +14,8 @@
 
   <div id="story-content">
     {% if story.image_upload %}
-    <img src="{{ story.image_upload }}">
-     
-     
-
-    {% else %}
-    <img src="{% static '/news/images/placeholder-5.jpg' %}" />
+    <img src="{{ story.image_upload }}">  
+  
     {% endif %} 
 
     {{ story.content|linebreaks }}
@@ -27,7 +23,11 @@
   <div>
     
      <h4>Last updated: {{ story.pub_update }} <br> Published:  {{ story.pub_date }} </h4>
-     <h4>Category {{ story.category }}</h4>
+     {% if story.category %}
+     <h4>#{{ story.category }}</h4>
+     {% else %}
+     <h4>#Uncategorised</h4>
+     {% endif %}
 
     
      
