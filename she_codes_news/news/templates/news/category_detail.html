@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block content %} 
+
+<div>
+    <h2> {{ category.name }} </h2>   
+</div>
+
+
+
+<div> 
+    Stories:
+
+    <ul>    
+    {% for story in category.stories.all %} 
+
+    
+    <li><h2><a href="{% url 'news:story' story.id %}">{{ story.title }}</a></h2></li>  
+        
+        {% if request.user == profile %}
+        <a href="{% url 'news:updateStory' story.id %}"> Edit </a> | <a href="{% url 'news:deleteStory' story.id %}"> Delete</a>
+        {% endif %} 
+        {% endfor %}
+    </ul> 
+        
+   
+</div>
+
+{% endblock %}

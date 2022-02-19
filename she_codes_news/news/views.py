@@ -2,7 +2,7 @@ from unicodedata import category
 from django.shortcuts import get_object_or_404
 from django.views import generic
 from django.urls import reverse_lazy, reverse
-from .models import NewsStory
+from .models import Category, NewsStory
 from .forms import StoryForm
 from django.db.models import Q
 from django.core.exceptions import PermissionDenied
@@ -20,7 +20,7 @@ class IndexView(generic.ListView):
         context = super().get_context_data(**kwargs)
         if self.request.GET.get('search'):
             s_term = self.request.GET.get('search')
-            context['all_stories'] = NewsStory.objects.filter(Q(title__icontains=s_term) | Q(author__username=s_term) | Q(author__last_name=s_term) | Q(category__name__iexact=s_term)) 
+            context['all_stories'] = NewsStory.objects.filter(Q(title__icontains=s_term) | Q(author__username=s_term) | Q(author__last_name=s_term) | Q(category__name__iexact=s_term) | Q(content__icontains=s_term)) 
         else:
             context['latest_stories'] = NewsStory.objects.all().order_by('-pub_date')[:4]
             context['all_stories'] = NewsStory.objects.all()
@@ -80,6 +80,9 @@ class StoryDeleteView(generic.DeleteView):
 
 
 
+class CategoryView(generic.DetailView):
+    model = Category
+    slug_field = 'name'
 
         
     
