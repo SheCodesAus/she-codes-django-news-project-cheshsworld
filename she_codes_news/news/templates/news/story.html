@@ -9,7 +9,7 @@
 
 <div id="story-wrapper">
   <h2>{{ story.title }}</h2>
-  <h4>{{ story.author }}</h4>
+  <h4><a href="{% url 'users:profile' pk=story.author.id %}">{{ story.author }}</a></h4>
  
 
   <div id="story-content">
@@ -22,13 +22,15 @@
   </div>
   <div>
     
-     <h4>Last updated: {{ story.pub_update }} <br> Published:  {{ story.pub_date }} </h4>
-     {% if story.category %}
-     <h4>#{{ story.category }}</h4>
-     {% else %}
-     <h4>#Uncategorised</h4>
-     {% endif %}
+    {% if story.category %}
+    <h4>#{{ story.category }}</h4>
+    {% else %}
+    <h4>#Uncategorised</h4>
+    {% endif %}
+    </div>
+    <div>
+      <h4>Last updated: {{ story.pub_update }} <br> Published:  {{ story.pub_date }} </h4>
+    </div>
   </div>
-</div>
 
 {% endblock %}

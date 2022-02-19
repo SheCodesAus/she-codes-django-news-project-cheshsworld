@@ -1,6 +1,3 @@
-from distutils.command.upload import upload
-from time import timezone
-from unicodedata import category
 from django.contrib.auth import get_user_model
 from django.db import models
 

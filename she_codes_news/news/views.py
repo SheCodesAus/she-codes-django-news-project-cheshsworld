@@ -1,11 +1,10 @@
-from unicodedata import category
-from django.shortcuts import get_object_or_404
 from django.views import generic
 from django.urls import reverse_lazy, reverse
 from .models import Category, NewsStory
 from .forms import StoryForm
 from django.db.models import Q
 from django.core.exceptions import PermissionDenied
+
 
 
 class IndexView(generic.ListView):
@@ -43,12 +42,13 @@ class AddStoryView(generic.CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+         
 
 
 class StoryUpdateView(generic.UpdateView):
     model = NewsStory
     fields =  ['image_upload', 'title','content', 'category']
-    template_name = 'news/createStory.html'
+    template_name = 'news/edit_story.html'
     
 
     def form_valid(self, form):
@@ -65,6 +65,8 @@ class StoryUpdateView(generic.UpdateView):
     def get_success_url(self):
         story_id = self.object.id
         return reverse('news:story', kwargs={'pk': story_id},)
+        
+       
 
 
 class StoryDeleteView(generic.DeleteView):
@@ -72,20 +74,21 @@ class StoryDeleteView(generic.DeleteView):
     template_name = 'news/deletestory.html'
     success_url = reverse_lazy('news:index')
 
-    def get_object(self, queryset = None):
+    def get_object(self, queryset = None,):
         story = super().get_object(queryset)
         if story.author != self.request.user:
-            raise PermissionDenied
+            raise PermissionDenied        
         return story
 
-
+      
 
 class CategoryView(generic.DetailView):
     model = Category
     slug_field = 'name'
 
         
-    
+
+
      
 
     
