@@ -5,4 +5,3 @@ class StoryForm(ModelForm):
     class Meta:
         model = NewsStory
         fields = ['image_upload', 'title','content','category']
-          

@@ -4,27 +4,36 @@
 {% block content %} 
 
 <div>
-    <h2> Welcome to {{ profile.username }}'s profile </h2>   
+    {% if request.user == profile %}
+    <a href="{% url 'users:updateProfile' user.id %}">Edit Details</a>
+    {% endif %}     
+    
 </div>
-
 {% if request.user == profile %}
 <a id="new_story" href="{% url 'news:newStory' %}">Write New story</a>
-{% endif %} 
-
+{% endif %}
 <div>
-    <h3>Bio<h3>
-        {% if request.user == profile %}
-        <div><h3><a href="{% url 'users:updateProfile' user.id %}">Edit</a></h3></div>
-        {% endif %} 
+<h2> Welcome to {{ profile.username }}'s profile </h2> 
+</div>
+
+ 
+
+<div>   
     <div>
+    <h3>Bio<h3>
+    </div>
+
+    <div>        
         {% if profile.bio %}
-        {{ profile.bio }}        
+        {{ profile.bio }} 
+        {% else %} 
+        <p> This user has yet to write a bio <p>            
         {% endif %}
     </div>
 </div>
 
 
-<div> 
+<div>     
     My Stories:
 
         <ul>   
@@ -36,15 +45,8 @@
         <a href="{% url 'news:updateStory' story.id %}"> Edit </a> | <a href="{% url 'news:deleteStory' story.id %}"> Delete</a>
         {% endif %}         
         {% endfor %}       
-     </ul> 
-    
-     
-       
-
-
-    
-        
-   
+     </ul>    
+ 
 </div>
 
 {% endblock %}

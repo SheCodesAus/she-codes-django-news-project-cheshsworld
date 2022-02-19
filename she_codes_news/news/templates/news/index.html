@@ -20,32 +20,29 @@
 <a id="new_story" href="{% url 'news:newStory' %}">Write New story</a>
 {% endif %} 
 
+
 {% if latest_stories %}
 <h2>Latest News</h2>
-
-
 <div id="latest-stories">
     {% for story in latest_stories %}
         {% include "./storyCard.html" with story=story position=forloop.counter %}
         {% endfor %}
-  {% else %}
-  <p>No stories are available.</p>
-  {% endif %}
+   {% endif %}
 </div>
 
 
 
+<h2 id="title-story">All Stories</h2>
 {% if all_stories %}
-<h2>All Stories</h2>
-
-<div id="all-stories">
- {% for story in all_stories %}
+  <div id="all-stories">
+  {% for story in all_stories %}
     {% include "./storyCard.html" with story=story %}
     {% endfor %} 
-  {% else %}
+   {% else %}
   <p>No stories are available.</p>
-  {% endif %} 
-
+   {% endif %} 
+   </div>
+  
 
 
 

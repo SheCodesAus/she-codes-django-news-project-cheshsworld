@@ -1,7 +1,7 @@
 from django.views import generic
 from django.urls import reverse_lazy, reverse
 from .models import Category, NewsStory
-from .forms import StoryForm
+from .forms import  StoryForm
 from django.db.models import Q
 from django.core.exceptions import PermissionDenied
 

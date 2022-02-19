@@ -13,9 +13,9 @@
             <h4><a href="{% url 'users:profile' pk=story.author.id %}">Written by: {{ story.author }}</a></h4>
             <h4>Published: {{ story.pub_date }}</h4>
             {% if story.category %}
-            <h4><a href="{% url 'news:category' story.category.name %}">#{{ story.category }}</a></h4>
+            <h4><a id='categories' href="{% url 'news:category' story.category.name %}">#{{ story.category }}</a></h4>
             {% else %}
-            <h4>#Uncategorised</h4>
+            <h4 id='categories'>#Uncategorised</h4>
             {% endif %}
         </div>
        
