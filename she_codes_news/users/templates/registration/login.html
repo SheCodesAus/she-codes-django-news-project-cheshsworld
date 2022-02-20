@@ -8,6 +8,7 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Login</button>
+    <a class="form-text" href="{% url 'news:index' %}">Return to Home</a>
 </form>
 
 <h2>Register</h2>

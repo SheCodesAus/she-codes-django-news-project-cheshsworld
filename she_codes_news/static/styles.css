@@ -17,6 +17,23 @@ header {
     filter: grayscale(100%);
 } */
 
+.form-text { 
+    
+    padding: 2px 7px;
+    border-width: 1px;
+    border-style: outset;
+    border-radius: 2px;
+    font-size: 12px;   
+}
+
+.form-text:hover  {
+
+    border: 1px solid #1a1919;
+    background-color: #00000011;
+}
+
+
+
 h1 {
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
@@ -44,6 +61,7 @@ h4 {
     display: flex;
     
 }
+
 
 nav {
     flex-basis: 20%;
@@ -74,7 +92,6 @@ a, p {
     margin-left: 20%;
     background-color: #8246AF;
 
-
 }
 
 #new_story {
@@ -85,6 +102,11 @@ a, p {
     border-radius:10px;
     color: rgb(231, 244, 255);  
     text-decoration: solid underline; 
+
+}
+
+
+
     
 
     /* display: flex; */
@@ -100,4 +122,4 @@ a, p {
    
 
     
-}
+
