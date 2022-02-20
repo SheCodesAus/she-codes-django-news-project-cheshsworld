@@ -10,7 +10,7 @@
     
 </div>
 {% if request.user == profile %}
-<a id="new_story" href="{% url 'news:newStory' %}">Write New story</a>
+<a class="new_story" href="{% url 'news:newStory' %}">Write New story</a>
 {% endif %}
 <div>
 <h2> Welcome to {{ profile.username }}'s profile </h2> 
