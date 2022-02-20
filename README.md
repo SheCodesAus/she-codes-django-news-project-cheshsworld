@@ -1,6 +1,9 @@
 # Plus Resources: Django Project Starter
 
 Starter code for the Plus Django project.
+
+Screenshots in folder outside of shecodesnews
+
 Heroku deployemnt:
 
 https://rocky-mesa-18356.herokuapp.com/news/
