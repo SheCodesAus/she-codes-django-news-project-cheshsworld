@@ -13,39 +13,37 @@
 <a class="new_story" href="{% url 'news:newStory' %}">Write New story</a>
 {% endif %}
 <div>
-<h2> Welcome to {{ profile.username }}'s profile </h2> 
+<h2 id="welcomeHead"> Welcome to {{ profile.username }}'s profile </h2> 
 </div>
 
  
 
-<div>   
-    <div>
-        <h3>Bio</h3>
-    </div>
-
-    <div>        
+<div>         
+    <div class="Bdeco">  
+        <h2>Bio:</h2>
         {% if profile.bio %}
         {{ profile.bio }} 
         {% else %} 
         <p> This user has yet to write a bio <p>            
-        {% endif %}
-    </div>
+        {% endif %}  
+      </div>
 </div>
 
 
-<div>     
-    My Stories:
-
-        <ul>   
-        {% for story in profile.newsstory_set.all %} 
+<div >
+    <h2>My Stories:<h2>
+    <div class="storyDeco">  
+        <ul> 
         
-        <li><h2><a href="{% url 'news:story' story.id %}">{{ story.title }}</a></h2></li>  
+    {% for story in profile.newsstory_set.all %}         
+        <li><a class="storyLink" href="{% url 'news:story' story.id %}">{{ story.title }}</a></li>    
         
-        {% if request.user == profile %}
-        <a class="form-text" href="{% url 'news:updateStory' story.id %}"> Edit </a> | <a class="form-text" href="{% url 'news:deleteStory' story.id %}"> Delete</a>
-        {% endif %}         
-        {% endfor %}       
-     </ul>    
+    {% if request.user == profile %}
+        <a class="form-text" href="{% url 'news:updateStory' story.id %}"> Edit </a>  <a class="form-text" href="{% url 'news:deleteStory' story.id %}"> Delete</a>
+    {% endif %} 
+    {% endfor %}               
+    </ul>
+    </div>      
  
 </div>
 

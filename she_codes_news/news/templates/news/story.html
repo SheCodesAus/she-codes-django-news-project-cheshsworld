@@ -9,7 +9,7 @@
 
 <div id="story-wrapper">
   <h2>{{ story.title }}</h2>
-  <h4><a href="{% url 'users:profile' pk=story.author.id %}">{{ story.author }}</a></h4>
+  <h4><a href="{% url 'users:profile' pk=story.author.id %}">Author: {{ story.author }}</a></h4>
  
 
   <div id="story-content">

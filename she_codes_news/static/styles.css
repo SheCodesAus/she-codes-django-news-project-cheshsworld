@@ -2,7 +2,7 @@
 
 
 body {
-    background-color: rgb(240, 239, 239);
+    background-color: rgb(251, 249, 249);
 }
 
 header {
@@ -12,14 +12,14 @@ header {
     background-color: #8146af;
 }
 
-/* img {
-    filter: grayscale(100%);
-} */
 
 #Sdeco {
     display: flex;
     flex-direction: row-reverse;
 }
+
+
+
 
 .form-text { 
     
@@ -41,6 +41,7 @@ header {
 
 
 
+
 h1 {
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
@@ -52,7 +53,13 @@ h1 {
 h2 {
    font-family: 'Poppins', sans-serif; 
    padding: 1px;
+   text-decoration: underline;
+  
+   
+   
 }
+
+
 
 h3 {
     color: #000000;
@@ -66,6 +73,47 @@ h3 {
 h4 {
     color: rgb(196, 124, 58);
 }
+
+
+
+.Bdeco {
+    padding: 6px;
+    color: black;  
+    border-bottom: 1px;     
+    border-style: groove;
+    text-align: justify;
+    font-size: 20px;
+}
+
+.storyDeco {
+    margin-top: 26px;
+    font-size: 20px;
+   
+}
+
+li {
+    color: purple;
+}
+
+.storyLink {
+    margin-bottom: 7px;
+    margin-top: 14px;
+    color: black;
+    display: flex;
+    text-align: justify;
+}
+
+.storyLink:hover {
+    color: #8246AF;
+}
+
+
+
+#welcomeHead {
+    
+    text-align: center;
+}
+
 
 #header-text {
     flex-basis: 85%;
@@ -151,19 +199,6 @@ a, p {
 }
 
 
-
-    
-
-    /* display: flex; */
-   
-    /* display: flex;
-    
-    /* text-align: center;
-    margin: 5px;
-   
-    padding: 10px;
-    
-    font-size: 1rem; */
    
 
     
