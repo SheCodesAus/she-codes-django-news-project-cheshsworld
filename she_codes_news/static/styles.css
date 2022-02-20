@@ -78,15 +78,20 @@ h4 {
 
 
 nav {
-    display: flex;    
-    justify-content: space-evenly;
-    text-decoration: underline;
+    display: flex;
+    justify-content: center;   
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    margin-top: -17px;
            
 }
 
 .nav-text {
+    padding: 6px;
     color: white;
-    font-weight: bold;
+    font-weight: bold;    
+    border-style: groove;
+    text-decoration: underline
 }
 
 
