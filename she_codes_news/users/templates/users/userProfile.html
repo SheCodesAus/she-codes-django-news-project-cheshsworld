@@ -5,7 +5,7 @@
 
 <div>
     {% if request.user == profile %}
-    <a href="{% url 'users:updateProfile' user.id %}">Edit Details</a>
+    <a  href="{% url 'users:updateProfile' user.id %}">Edit Details</a>
     {% endif %}     
     
 </div>
@@ -42,7 +42,7 @@
         <li><h2><a href="{% url 'news:story' story.id %}">{{ story.title }}</a></h2></li>  
         
         {% if request.user == profile %}
-        <a href="{% url 'news:updateStory' story.id %}"> Edit </a> | <a href="{% url 'news:deleteStory' story.id %}"> Delete</a>
+        <a class="form-text" href="{% url 'news:updateStory' story.id %}"> Edit </a> | <a class="form-text" href="{% url 'news:deleteStory' story.id %}"> Delete</a>
         {% endif %}         
         {% endfor %}       
      </ul>    

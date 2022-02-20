@@ -16,19 +16,27 @@ header {
     filter: grayscale(100%);
 } */
 
+#Sdeco {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 .form-text { 
     
     padding: 2px 7px;
     border-width: 1px;
     border-style: outset;
-    border-radius: 2px;
-    font-size: 12px;   
+    border-radius: 4px;
+    font-size: 12px;
+    background-color: orange;
+    color: white;   
+    border: 1px solid #1a1919;
 }
 
 .form-text:hover  {
 
-    border: 1px solid #1a1919;
-    background-color: #00000011;
+    color: orange;
+    background-color: #8246AF;
 }
 
 
@@ -43,12 +51,16 @@ h1 {
 
 h2 {
    font-family: 'Poppins', sans-serif; 
+   padding: 1px;
 }
 
 h3 {
     color: #000000;
     font-size: 2rem;
-    margin: 0;
+    margin: 1px;
+    padding-bottom: 2px;
+    text-align: center;
+    text-decoration: underline
 }
 
 h4 {
@@ -110,12 +122,7 @@ a, p {
     font-family: poppins;
 }
 
-#serach-bar {
-    display: flex;
-    margin-left: 20%;
-    background-color: #8246AF;
 
-}
 
 .new_story {
     background-color: orange;
@@ -129,12 +136,16 @@ a, p {
     justify-content: center; 
     font-family:'Poppins', sans-serif;
     font-weight: bold;
+    border: 1px black;
+    border-style: groove;
     
 }
 
 .new_story:hover{
     color: orange;
     background-color: #8246AF;
+    border: 1px black;
+    border-style: groove;
     
 
 }

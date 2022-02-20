@@ -5,7 +5,7 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">update</button>
+    <button class="form-text" type="submit">update</button>
     <a class="form-text" href="{% url 'users:profile' user.id %}">Cancel</a>
 </form>
 {% endblock %} 
