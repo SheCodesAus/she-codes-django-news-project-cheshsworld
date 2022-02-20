@@ -14,14 +14,12 @@
 
   <div id="story-content">
     {% if story.image_upload %}
-    <img src="{{ story.image_upload }}">  
-  
-    {% endif %} 
-
+    <img src="{{ story.image_upload }}">    
+    {% endif %}   
     {{ story.content|linebreaks }}
   </div>
-  <div>
-    
+
+  <div>    
     {% if story.category %}
     <h4><a id='categories' href="{% url 'news:category' story.category.name %}">#{{ story.category }}</a></h4>
     {% else %}
