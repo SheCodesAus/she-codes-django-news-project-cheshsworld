@@ -9,8 +9,8 @@ Heroku deployemnt:
 https://rocky-mesa-18356.herokuapp.com/news/
 
 User:
-Hayley
-TaylorLove
+User: Hayley
+Pass :TaylorLove
 
 Functions Available:
 
