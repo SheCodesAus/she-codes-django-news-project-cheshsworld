@@ -71,7 +71,7 @@ class StoryUpdateView(generic.UpdateView):
 
 class StoryDeleteView(generic.DeleteView):
     model = NewsStory
-    template_name = 'news/deletestory.html'
+    template_name = 'news/deleteStory.html'
     success_url = reverse_lazy('news:index')
 
     def get_object(self, queryset = None,):
