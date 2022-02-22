@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block content %} 
+
+<div>
+    {% if request.user == profile %}
+    <a  href="{% url 'users:updateProfile' user.id %}">Edit Details</a>
+    {% endif %}     
+    
+</div>
+{% if request.user == profile %}
+<a class="new_story" href="{% url 'news:newStory' %}">Write New story</a>
+{% endif %}
+<div>
+<h2 id="welcomeHead"> Welcome to {{ profile.username }}'s profile </h2> 
+</div>
+
+ 
+
+<div>         
+    <div class="Bdeco">  
+        <h2>Bio:</h2>
+        {% if profile.bio %}
+        {{ profile.bio }} 
+        {% else %} 
+        <p> This user has yet to write a bio <p>            
+        {% endif %}  
+      </div>
+</div>
+
+
+<div >
+    <h2>My Stories:<h2>
+    <div class="storyDeco">  
+        <ul> 
+        
+    {% for story in profile.newsstory_set.all %}         
+        <li><a class="storyLink" href="{% url 'news:story' story.id %}">{{ story.title }}</a></li>    
+        
+    {% if request.user == profile %}
+        <a class="form-text" href="{% url 'news:updateStory' story.id %}"> Edit </a>  <a class="form-text" href="{% url 'news:deleteStory' story.id %}"> Delete</a>
+    {% endif %} 
+    {% endfor %}               
+    </ul>
+    </div>      
+ 
+</div>
+
+{% endblock %}

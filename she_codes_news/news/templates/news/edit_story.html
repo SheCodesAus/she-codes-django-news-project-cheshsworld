@@ -6,8 +6,8 @@
     {% csrf_token %}
     {{ form.media }}
     {{ form.as_p }}
-    <input class="form-text" type="submit" value="submit">    |
-    <a class="form-text" href="{% url 'news:index' %}">Cancel</a>
+    <input class="form-text" type="submit" value="submit">
+    <a class="form-text" href="{% url 'users:profile' user.id %}">Cancel</a>
 </form>
 
 {% endblock %} 

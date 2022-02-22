@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block content %} 
+
+<div>
+    <h2> Stories in {{ category.name }} </h2>   
+</div>
+
+
+
+<div>   
+
+    <ul>    
+    {% for story in category.stories.all %}     
+    <li><h2><a href="{% url 'news:story' story.id %}">{{ story.title }}</a></h2></li>          
+       {% endfor %}
+    </ul>        
+   
+</div>
+
+{% endblock %}

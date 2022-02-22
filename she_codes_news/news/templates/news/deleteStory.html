@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %} 
+
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    {{ form.as_p }}
+    <input class="form-text" type="submit" value="Confirm">
+    <a class="form-text" href="{% url 'users:profile' user.id %}">Cancel</a>
+</form>
+
+{% endblock %} 

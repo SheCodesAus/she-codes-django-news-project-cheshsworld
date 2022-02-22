@@ -1,25 +1,38 @@
-<!doctype html>
+{% load static%}
+
+<!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>She Codes News</title>
-        <meta name="description" content="">
-        <meta name="author" content="Hayley van Waas">
-        <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="">
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <title>She Codes News</title>
+    <meta name="description" content="" />
+    <meta name="author" content="Aleksandra Simic" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+    {% block stylesheets %}{% endblock %}
+  </head>
 
-    <body>
-        <header>
-            <div id="header-text">
-                <a id="header-link" href="{% url 'news:index' %}">
-                    <h1>She {Codes} News</h1>
-                </a>
-            </div>
-            <!-- include nav here -->
-        </header>
+  <body>
+    <header>      
+      <div id="header-text">
+        <a id="header-link" href="{% url 'news:index' %}">
+          <div id="header_align">
+          <h1>She<h1>
+          <h1 id="header_Code"> {Codes} <h1>
+          <h1> News</h1>
+          </div> 
+        </a> 
+              
+      </div>
+       <!-- include nav here -->
+      {% include './nav.html' %}
+    </header>
 
-        <!-- content blocks here -->
-    </body>
+    <!-- content blocks here -->
+    {% block content %}{% endblock %}
+  </body>
 </html>

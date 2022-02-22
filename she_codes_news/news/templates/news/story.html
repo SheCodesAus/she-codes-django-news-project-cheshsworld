@@ -1,8 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css'%}">
+{% endblock %}
+
+{% block content %} 
+
 <div id="story-wrapper">
-    <h2>{{ story.title }}</h2>
-    <h4>{{ story.author }}</h4>
-    <div id="story-content">
-        <img src="{% static '/news/images/placeholder-5.jpg' %}">
-        {{ story.content|linebreaks }}
+  <h2>{{ story.title }}</h2>
+  <h4><a href="{% url 'users:profile' pk=story.author.id %}">Author: {{ story.author }}</a></h4>
+ 
+
+  <div id="story-content">
+    {% if story.image_upload %}
+    <img src="{{ story.image_upload }}">    
+    {% endif %}   
+    {{ story.content|linebreaks }}
+  </div>
+
+  <div>    
+    {% if story.category %}
+    <h4><a id='categories' href="{% url 'news:category' story.category.name %}">#{{ story.category }}</a></h4>
+    {% else %}
+    <h4>#Uncategorised</h4>
+    {% endif %}
     </div>
-</div>
+    <div>
+      <h4>Last updated: {{ story.pub_update }} <br> Published:  {{ story.pub_date }} </h4>
+    </div>
+  </div>
+
+{% endblock %}
